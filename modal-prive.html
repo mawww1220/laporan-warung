@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal & Prive - Warung Laporan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-halaman="modal-prive">
+    <div class="aplikasi">
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <main class="konten">
+            <div id="merekMobile"></div>
+            <header class="header">
+                <div>
+                    <h1>Modal &amp; Prive</h1>
+                    <p class="deskripsi">Catat uang pemilik yang masuk ke usaha (modal) dan uang usaha yang diambil pemilik (prive).</p>
+                </div>
+            </header>
+
+            <div class="kotak-aturan">
+                <div><strong>Modal</strong>Menambah kas usaha, tetapi bukan penjualan. Tidak dihitung sebagai pendapatan di laba rugi.</div>
+                <div><strong>Prive</strong>Mengurangi kas usaha, tetapi bukan pengeluaran usaha. Tidak mengurangi laba di laba rugi.</div>
+            </div>
+
+            <div class="tab-bar" role="tablist" aria-label="Jenis catatan">
+                <button class="tab" role="tab" id="tab-modal" aria-controls="akarModal" aria-selected="true" type="button">Modal</button>
+                <button class="tab" role="tab" id="tab-prive" aria-controls="akarPrive" aria-selected="false" type="button">Prive</button>
+            </div>
+
+            <div id="akarModal" role="tabpanel" aria-labelledby="tab-modal"></div>
+            <div id="akarPrive" role="tabpanel" aria-labelledby="tab-prive" hidden></div>
+
+            <p class="catatan-keamanan">Data tersimpan di browser pada perangkat ini. Unduh cadangan secara berkala di menu Profil Usaha.</p>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="catatan.js"></script>
+    <script src="modalprive.js"></script>
+</body>
+</html>

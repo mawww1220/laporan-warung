@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Usaha - Warung Laporan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-halaman="profil">
+    <div class="aplikasi">
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <main class="konten">
+            <div id="merekMobile"></div>
+
+            <header class="header">
+                <div>
+                    <h1>Profil Usaha</h1>
+                    <p class="deskripsi">Data usaha dan saldo kas awal. Nama usaha dipakai pada laporan yang dicetak.</p>
+                </div>
+            </header>
+
+            <section class="panel">
+                <h3>Data usaha</h3>
+                <form class="formulir" id="formProfil" novalidate>
+                    <div class="isian penuh">
+                        <label for="namaUsaha">Nama usaha</label>
+                        <input type="text" id="namaUsaha" maxlength="80" autocomplete="off" placeholder="Contoh: Rumah Makan Padang Sederhana">
+                        <div class="galat-isian" id="g-namaUsaha" role="alert"></div>
+                    </div>
+                    <div class="isian">
+                        <label for="namaPemilik">Nama pemilik <span class="opsional">(opsional)</span></label>
+                        <input type="text" id="namaPemilik" maxlength="80" autocomplete="off">
+                        <div class="galat-isian" id="g-namaPemilik" role="alert"></div>
+                    </div>
+                    <div class="isian">
+                        <label for="telepon">Nomor telepon <span class="opsional">(opsional)</span></label>
+                        <input type="tel" id="telepon" maxlength="20" autocomplete="off" placeholder="Contoh: 0812-3456-7890">
+                        <div class="galat-isian" id="g-telepon" role="alert"></div>
+                    </div>
+                    <div class="isian penuh">
+                        <label for="alamat">Alamat usaha <span class="opsional">(opsional)</span></label>
+                        <input type="text" id="alamat" maxlength="200" autocomplete="off">
+                        <div class="galat-isian" id="g-alamat" role="alert"></div>
+                    </div>
+                    <div class="isian">
+                        <label for="jamOperasional">Jam operasional <span class="opsional">(opsional)</span></label>
+                        <input type="text" id="jamOperasional" maxlength="80" autocomplete="off" placeholder="Contoh: Setiap hari, 07.00–21.00">
+                        <div class="galat-isian" id="g-jamOperasional" role="alert"></div>
+                    </div>
+                    <div class="isian">
+                        <label for="tahunMulai">Tahun mulai usaha <span class="opsional">(opsional)</span></label>
+                        <input type="text" id="tahunMulai" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="Contoh: 2015">
+                        <div class="galat-isian" id="g-tahunMulai" role="alert"></div>
+                    </div>
+
+                    <div class="isian penuh">
+                        <label for="saldoKasAwal">Saldo kas awal</label>
+                        <div class="awalan"><span aria-hidden="true">Rp</span><input type="text" id="saldoKasAwal" autocomplete="off" placeholder="0"></div>
+                        <div class="petunjuk">Uang kas usaha <strong>sebelum</strong> transaksi pertama yang dicatat di aplikasi ini. Isi sekali saja. Jangan diisi ulang tiap bulan: saldo bulan-bulan berikutnya dihitung otomatis dari transaksi.</div>
+                        <div class="galat-isian" id="g-saldoKasAwal" role="alert"></div>
+                    </div>
+
+                    <div class="aksi-formulir penuh">
+                        <button type="submit" class="tombol" id="tombolSimpanProfil">Simpan profil</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel" aria-labelledby="judulCadangan">
+                <div class="panel-header">
+                    <div>
+                        <h3 id="judulCadangan">Cadangan &amp; pemulihan data</h3>
+                        <p>Lindungi catatan keuangan Anda dari hilang.</p>
+                    </div>
+                </div>
+
+                <div class="banner peringatan" style="margin-top:14px">
+                    <span id="ikonPeringatan"></span>
+                    <div class="isi">
+                        <strong>Data tersimpan di browser perangkat ini</strong>, bukan di internet. Data hilang jika riwayat/data situs browser dihapus atau jika browser dipasang ulang. Data tidak otomatis muncul di HP, komputer lain, atau browser lain. Unduh cadangan secara berkala dan simpan di tempat aman (misalnya Google Drive atau flashdisk).
+                    </div>
+                </div>
+
+                <div class="bagian-cadangan">
+                    <div class="blok">
+                        <h4>1. Simpan cadangan</h4>
+                        <p id="infoCadanganTerakhir"></p>
+                        <div class="daftar-sederhana" id="hitungCatatan" style="margin-bottom:14px"></div>
+                        <button type="button" class="tombol" id="tombolEkspor"></button>
+                    </div>
+
+                    <div class="blok">
+                        <h4>2. Pulihkan dari file cadangan</h4>
+                        <p>Pilih file <code>.json</code> yang sebelumnya diunduh dari aplikasi ini. Sebelum data diubah, Anda akan melihat ringkasan isi file dan diminta memilih: menggabungkan atau mengganti. Kondisi data sekarang otomatis disimpan sehingga impor bisa dibatalkan.</p>
+                        <input type="file" id="berkasImpor" accept=".json,application/json" hidden>
+                        <div class="aksi-formulir">
+                            <button type="button" class="tombol sekunder" id="tombolImpor"></button>
+                            <button type="button" class="tombol sekunder" id="tombolBatalImpor" hidden></button>
+                        </div>
+                        <p class="teks-bantu" id="infoSnapshot" style="margin-top:10px"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h3>Tentang penyimpanan data</h3>
+                <ul style="padding-left:20px; margin-top:10px; display:grid; gap:6px; color:var(--teks-lembut); font-size:15px;">
+                    <li>Data disimpan di <em>localStorage</em> browser. Ini bukan database server dan tidak tersinkron secara online.</li>
+                    <li>Data terikat pada <strong>satu browser, di satu perangkat, dan satu alamat</strong>. Alamat <code>http://127.0.0.1:5500</code> dan <code>http://localhost:5500</code> dianggap dua tempat berbeda. Selalu buka lewat alamat yang sama.</li>
+                    <li>Mode penyamaran (Incognito) tidak menyimpan data setelah jendela ditutup.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="profil.js"></script>
+</body>
+</html>

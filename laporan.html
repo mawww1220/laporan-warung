@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan - Warung Laporan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-halaman="laporan">
+    <div class="aplikasi">
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <main class="konten">
+            <div id="merekMobile"></div>
+
+            <header class="header">
+                <div>
+                    <h1>Laporan</h1>
+                    <p class="deskripsi">Semua laporan dihitung dari catatan yang tersimpan dan mengikuti periode yang Anda pilih.</p>
+                </div>
+            </header>
+
+            <section class="panel filter-laporan" id="filterRentang" aria-labelledby="judulPeriode">
+                <h3 id="judulPeriode">Periode laporan</h3>
+                <div id="chipsLaporan" style="margin-top:12px"></div>
+                <div class="filter">
+                    <div class="isian"><label for="rDari">Dari tanggal</label><input type="date" id="rDari"></div>
+                    <div class="isian"><label for="rSampai">Sampai tanggal</label><input type="date" id="rSampai"></div>
+                </div>
+                <p class="info-filter" id="infoRentang" role="status"></p>
+            </section>
+
+            <section class="panel filter-laporan" id="filterArsip" aria-labelledby="judulArsip" hidden>
+                <h3 id="judulArsip">Pilih bulan arsip</h3>
+                <div class="filter">
+                    <div class="isian"><label for="aBulan">Bulan</label><select id="aBulan"></select></div>
+                    <div class="isian"><label for="aTahun">Tahun</label><select id="aTahun"></select></div>
+                </div>
+            </section>
+
+            <div class="tab-bar" role="tablist" aria-label="Jenis laporan" id="tabLaporan">
+                <button class="tab" role="tab" data-tab="penjualan" type="button">Penjualan</button>
+                <button class="tab" role="tab" data-tab="pengeluaran" type="button">Pengeluaran</button>
+                <button class="tab" role="tab" data-tab="labarugi" type="button">Laba Rugi</button>
+                <button class="tab" role="tab" data-tab="aruskas" type="button">Arus Kas</button>
+                <button class="tab" role="tab" data-tab="arsip" type="button">Arsip Bulanan</button>
+            </div>
+
+            <div class="aksi-laporan">
+                <button type="button" class="tombol" id="tombolCetak"></button>
+                <button type="button" class="tombol sekunder" id="tombolCsv"></button>
+            </div>
+            <p class="teks-bantu tanpa-cetak" style="margin:-8px 0 16px">Untuk menyimpan sebagai PDF: klik <strong>Cetak / Simpan PDF</strong>, lalu pilih tujuan <em>Simpan sebagai PDF</em> di jendela cetak Chrome. File CSV memakai pemisah titik koma dan bisa dibuka di Excel.</p>
+
+            <section class="panel area-cetak" id="areaLaporan" role="tabpanel" aria-live="polite"></section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="laporan.js"></script>
+</body>
+</html>

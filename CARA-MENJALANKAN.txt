@@ -1,0 +1,56 @@
+WARUNG LAPORAN — CARA MENJALANKAN (Windows + VS Code + Live Server)
+====================================================================
+
+A. MENJALANKAN
+1. Ekstrak file "Warung Laporan - Final.zip" (klik kanan > Extract All).
+2. Buka VS Code > File > Open Folder > pilih folder "Warung Laporan - Final".
+3. Buka file index.html.
+4. Klik kanan di dalam file > "Open with Live Server"
+   (atau klik tulisan "Go Live" di pojok kanan bawah VS Code).
+5. Chrome akan terbuka. Alamatnya biasanya http://127.0.0.1:5500/index.html
+
+PENTING — SELALU PAKAI ALAMAT YANG SAMA
+Data tersimpan per alamat. "127.0.0.1:5500" dan "localhost:5500" dianggap dua
+tempat berbeda, jadi data bisa terlihat "hilang" kalau alamatnya berganti.
+Pakai satu alamat saja, dan buat bookmark.
+
+B. DATA LAMA ANDA (SANGAT PENTING — BACA)
+- Transaksi lama Anda ada di Chrome (localStorage), BUKAN di file ZIP ini.
+  ZIP ini hanya berisi program. Data lama TIDAK ikut pindah dan TIDAK
+  otomatis tercadangkan.
+- Agar data lama terbaca, buka aplikasi di ALAMAT YANG SAMA dan CHROME YANG
+  SAMA dengan yang dulu Anda pakai. Saat pertama dibuka, aplikasi otomatis:
+    * menyimpan salinan data lama (kunci warungLaporanAsliV1Penjualan dan
+      warungLaporanAsliV1Pengeluaran),
+    * memindahkan data ke format baru tanpa menghapus transaksi,
+    * memetakan kategori pengeluaran lama ke 7 kategori baru
+      (yang kurang pasti diberi tanda "Dulu: ... — periksa").
+- Kalau Live Server dulu memakai nomor port lain (misalnya 5501), data lama ada
+  di alamat dengan port itu. Buka alamat itu dulu, lalu unduh cadangan.
+
+LANGKAH AMAN SEBELUM APA PUN:
+1. Buka aplikasi di alamat lama.
+2. Menu Profil Usaha > "Unduh cadangan data". Simpan file .json di tempat aman
+   (Google Drive / flashdisk).
+Lakukan ini setidaknya seminggu sekali.
+
+C. PINDAH KE HP / KOMPUTER LAIN
+Data tidak tersinkron otomatis. Caranya: di perangkat lama unduh cadangan,
+kirim filenya, lalu di perangkat baru buka Profil Usaha > "Pilih file cadangan".
+
+D. SARAN PENGISIAN AWAL
+1. Profil Usaha: isi nama usaha dan SALDO KAS AWAL (uang kas sebelum transaksi
+   pertama yang dicatat). Isi sekali saja.
+2. Catat Penjualan dan Pengeluaran seperti biasa.
+3. Modal = uang pribadi yang dimasukkan ke usaha. Prive = uang usaha yang
+   diambil pemilik. Keduanya dicatat di menu Modal & Prive, bukan di
+   Penjualan/Pengeluaran.
+
+E. DAFTAR FILE
+index.html, penjualan.html, pengeluaran.html, modal-prive.html, laporan.html,
+profil.html            : enam halaman aplikasi
+style.css              : tampilan
+data.js                : penyimpanan, perhitungan, migrasi, cadangan (otak aplikasi)
+ui.js, catatan.js      : komponen tampilan bersama
+dashboard.js, script.js (Penjualan), pengeluaran.js, modalprive.js,
+laporan.js, profil.js  : skrip tiap halaman

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Warung Laporan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-halaman="dashboard">
+    <div class="aplikasi">
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <main class="konten">
+            <div id="merekMobile"></div>
+
+            <header class="header">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p class="deskripsi">Kondisi keuangan usaha Anda, dihitung dari catatan yang tersimpan.</p>
+                </div>
+                <div class="tanggal-hari"><span id="ikonKalender"></span><span id="tanggalHariIni"></span></div>
+            </header>
+
+            <div id="areaBanner"></div>
+
+            <section class="panel sambutan" id="sambutan" hidden>
+                <h3>Selamat datang di Warung Laporan</h3>
+                <p>Belum ada transaksi yang tersimpan. Angka di bawah akan terisi otomatis setelah Anda mencatat. Mulai dari sini:</p>
+                <div class="langkah-awal">
+                    <a class="tombol" href="profil.html">Isi Profil Usaha &amp; saldo kas awal</a>
+                    <a class="tombol sekunder" href="penjualan.html">Catat penjualan</a>
+                    <a class="tombol sekunder" href="pengeluaran.html">Catat pengeluaran</a>
+                </div>
+            </section>
+
+            <h2 class="judul-bagian">Hari ini</h2>
+            <section class="ringkasan" id="kartuHari"></section>
+
+            <h2 class="judul-bagian" id="judulBulan">Bulan ini</h2>
+            <section class="ringkasan tiga" id="kartuBulan"></section>
+            <p class="teks-bantu" id="infoHpp" style="margin:-10px 0 24px" hidden></p>
+
+            <section class="grid-dua">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Tren 6 bulan terakhir</h3>
+                            <p>Penjualan dan pengeluaran per bulan</p>
+                        </div>
+                    </div>
+                    <div id="grafik" style="margin-top:14px"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Dibanding bulan lalu</h3>
+                            <p id="subBanding"></p>
+                        </div>
+                    </div>
+                    <div id="banding"></div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Transaksi terbaru</h3>
+                        <p>8 catatan terakhir dari penjualan, pengeluaran, modal, dan prive</p>
+                    </div>
+                    <a class="tombol sekunder kecil" href="laporan.html#arsip">Lihat arsip bulanan</a>
+                </div>
+                <div id="terbaru"></div>
+            </section>
+
+            <footer class="footer">
+                Warung Laporan · Data tersimpan di browser perangkat ini.
+            </footer>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
